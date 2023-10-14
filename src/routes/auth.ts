@@ -13,7 +13,7 @@ AuthRouter.get("/forgot-password", checkAuthenticated, userForgotPasswordControl
 AuthRouter.post('/login',
     passport.authenticate('local', { failureRedirect: '/api/auth/login' }),
     function (req, res) {
-        // req.flash('success', 'User signed in successfully');
+        req.flash('success', 'User signed in successfully');
         return res.redirect('/api/auth/forgot-password');
     });
 AuthRouter.post("/sign-up", userCreateController);

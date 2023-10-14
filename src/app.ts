@@ -8,6 +8,7 @@ import session from "express-session";
 import passport from 'passport';
 import passportLocal from 'passport-local';
 import "./config/mongoose";
+import expressEjsLayout from 'express-ejs-layouts';
 import { db } from './config/mongoose';
 import { UserModel } from './models/user';
 import { AuthRouter } from './routes/auth';
@@ -16,8 +17,8 @@ import { addAuthenticated } from './utils/isAuthenticated';
 // import { userSessionController } from './controllers/Users';
 // import { UserModel } from './models/UserModel';
 // import { addAuthenticated } from './utils/isAuthenticated';
-// import flash from 'connect-flash';
-// import { flashHandler } from './config/middleware';
+import flash from 'connect-flash';
+import { flashHandler } from './config/middleware';
 
 const app = express();
 
@@ -43,6 +44,7 @@ app.use(express.static(path.join(__dirname, 'assets')));
 app.set("views", path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(expressEjsLayout);
 app.set('layout extractStyles', true);
 app.set("layout extractScripts", true);
 
@@ -61,8 +63,10 @@ passport.deserializeUser(async function (id, done) {
         done(error, false);
     }
 });
-// app.use(addAuthenticated);
 app.use(addAuthenticated);
+
+app.use(flash());
+app.use(flashHandler);
 
 app.get("/", (req, res) => {
     return res.render("home");

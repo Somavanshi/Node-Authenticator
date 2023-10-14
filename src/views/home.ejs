@@ -1,19 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Oauth App</title>
-  </head>
-
-  <body>
-    <h1>This is home</h1>
-    <% if (locals.user) {%> 
-        <a href="/api/auth/sign-out">Sign Out</a>
-    <%} else {%>
-        <a href="/api/auth/login">login</a>
-        <a href="/api/auth/sign-up">Sign Up</a>
-    <%}%>
-  </body>
-</html>
+<h1>Welcome Home <%= locals.user?.name %></h1>
+<% if (locals.user) {%>
+    <a href="/api/auth/sign-out">Sign Out</a>
+<%} else {%>
+    <a href="/api/auth/login">login</a>
+    <a href="/api/auth/sign-up">Sign Up</a>
+<%}%>

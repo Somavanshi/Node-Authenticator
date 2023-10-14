@@ -31,3 +31,6 @@ if (!MONGO_URI) {
   }
   process.exit(1);
 }
+
+export const GOOGLE_CLIENT_ID = "127091931479-mhppm6e1j3bp424v0136e0kkgrcfm4dc.apps.googleusercontent.com";
+export const GOOGLE_CLIENT_SECRET = "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";

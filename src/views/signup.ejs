@@ -1,12 +1,16 @@
-
-<a href="/">Homepage</a>
 <h1>User Sign Up page</h1>
+<div class="container">
 
-<form action="/api/auth/sign-up" method="post">
-    <input type="text" name="name" placeholder="Enter your name" required>
-    <input type="email" name="email" placeholder="Enter your email address" required>
-    <input type="password" name="password" placeholder="password">
-    <input type="password" name="confirm-password" placeholder="confirm password">
-    <input type="submit" value="Sign up">
-</form>
-<a href="/auth/google">Sign up with Google</a>
+    <form action="/api/auth/sign-up" method="post">
+        <input type="text" name="name" placeholder="Enter your name" required>
+        <input type="email" name="email" placeholder="Enter your email address" required>
+        <input type="password" name="password" placeholder="password">
+        <input type="password" name="confirm-password" placeholder="confirm password">
+        <input type="submit" value="Sign up">
+    </form>
+    <div class="other-login">
+        <span>or sign up using</span> <br>
+        <a href="/api/auth/google"><i class="fa-brands fa-google"></i></a>
+        <span></span>
+    </div>
+</div>

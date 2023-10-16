@@ -1,9 +1,15 @@
-
-<a href="/">Homepage</a>
 <h3>Login to Continue</h3>
-<form action="/api/auth/login" method="post">
-    <input type="email" name="username" placeholder="Enter your email address" required>
-    <input type="password" name="password" placeholder="password">
-    <input type="submit" value="Sign in">
-</form>
-<a href="/api/auth/google">Login with Google</a>
+<div class="container">
+    <form action="/api/auth/login" method="post">
+        <input type="email" name="username" placeholder="Enter your email address" required>
+        <input type="password" name="password" placeholder="password">
+        <label id="forgot-password"><a href="/api/auth/forgot-password">Forgot Password?</a></label>
+        <input type="submit" value="Sign in">
+    </form>
+
+    <div class="other-login">
+        <span>or login using</span> <br>
+        <a href="/api/auth/google"><i class="fa-brands fa-google"></i></a>
+        <span></span>
+    </div>
+</div>

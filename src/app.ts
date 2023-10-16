@@ -7,6 +7,7 @@ import MongoStore from "connect-mongo";
 import session from "express-session";
 import passport from 'passport';
 import passportLocal from 'passport-local';
+import "./config/passport-google";
 import "./config/mongoose";
 import expressEjsLayout from 'express-ejs-layouts';
 import { db } from './config/mongoose';
@@ -70,7 +71,7 @@ app.use(flashHandler);
 
 app.get("/", (req, res) => {
     return res.render("home");
-  });
+});
 
 app.use('/api/auth', AuthRouter);
 

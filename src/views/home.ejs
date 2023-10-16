@@ -1,7 +1,1 @@
 <h1>Welcome Home <%= locals.user?.name %></h1>
-<% if (locals.user) {%>
-    <a href="/api/auth/sign-out">Sign Out</a>
-<%} else {%>
-    <a href="/api/auth/login">login</a>
-    <a href="/api/auth/sign-up">Sign Up</a>
-<%}%>

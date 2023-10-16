@@ -3,7 +3,7 @@ export const checkAuthenticated = (req: any, res: any, next: any) => {
         res.locals.user = req.user;
         return next() 
     }
-    res.redirect("/user/sign-in");
+    res.redirect("/api/auth/login");
 }
 
 export const addAuthenticated = (req: any, res: any, next: any) => {
@@ -16,5 +16,5 @@ export const addAuthenticated = (req: any, res: any, next: any) => {
 
 export const checkLoggedIn = (req: any, res: any, next: any) => {
     if (!req.isAuthenticated()) { return next() }
-    res.redirect("/user/profile");
+    res.redirect("/api/auth/reset-password");
 }

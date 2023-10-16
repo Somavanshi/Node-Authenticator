@@ -1,0 +1,76 @@
+body {
+    background: linear-gradient(45deg, rgb(144, 234, 234) 0%, #5d64dc 40%, #5d64dc 50%, #e674e6 100%);
+    background-size: cover;
+    margin: 0;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+}
+header {
+    width: 100%;
+    background-color: black;
+    color: white;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.3rem;
+}
+
+.logo {
+    margin-left: 20px;
+}
+
+.logo a{
+    text-decoration: none;
+    color: white;;
+}
+
+#forgot-password a {
+    text-decoration: none;
+    color: black;
+}
+
+.container {
+    background-color: white;
+    width: 40vw;
+    height: 60vh;
+    margin: auto;
+    box-sizing: border-box;
+    padding-top: 45px;
+}
+
+.container form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.container form input[type="submit"] {
+    margin: 19px 0;
+    width: 39%;
+    border-radius: 14px;
+    border: none;
+    padding: 4px;
+    background: linear-gradient(to right, rgb(144, 234, 234) 0%, #5d64dc 40%, #5d64dc 50%, #e674e6 100%);
+    background-size: cover;
+    color: white;
+}
+
+.container form input[type="email"],input[type="password"],input[type="text"] {
+    border: none;
+    border-bottom: lightgray 1px solid;
+    padding: 13px;
+    font-size: 0.85rem;
+    outline: none;
+}
+
+.right-header {
+    font-size: 1rem;
+}
+
+.right-header a {
+    margin: 0 15px;
+} 

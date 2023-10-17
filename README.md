@@ -30,6 +30,6 @@ A complete NodeJS + Express + Typescript + PassportJS + JWT authentication app +
 
 ##### Then simply start your app
 
-`npm start`
+`npm run dev`
 
 #### The Server should now be running at http://localhost:8081/

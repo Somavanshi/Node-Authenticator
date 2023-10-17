@@ -3,24 +3,35 @@ import { UserModel } from '../models/user';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { sendMail } from '../utils/mailer';
+
+/**
+ * Login page for user
+ */
 export function userSignInController(req: express.Request, res: express.Response) {
     return res.render("login", {
         title: "Users Sign In",
     });
 }
-
+/**
+ * Sign up page for user
+ */
 export function userSignUpController(req: express.Request, res: express.Response) {
     res.render("signup", {
         title: "Users sign Up",
     });
 }
 
+/**
+ * reset password page for user
+ */
 export function getResetPageController(req: express.Request, res: express.Response) {
     res.render("resetPassword", {
         title: "Reset Password",
     });
 }
-
+/**
+ * Reset password handler
+ */
 export async function resetPasswordController(req: express.Request, res: express.Response) {
     try {
         if (req.body.password === req.body["confirm-password"]) {
@@ -60,13 +71,18 @@ export async function resetPasswordController(req: express.Request, res: express
     }
 
 }
-
+/**
+ * Forgot password page for user
+ */
 export function userForgotPasswordController(req: express.Request, res: express.Response) {
     res.render("forgotPassword", {
         title: "Forgot Password",
     });
 }
 
+/**
+ * Logout handler
+ */
 export function userSignOutController(req: express.Request, res: express.Response) {
     req.logOut({ keepSessionInfo: false }, (err) => {
         console.log(err);
@@ -74,7 +90,9 @@ export function userSignOutController(req: express.Request, res: express.Respons
         return res.redirect("/api/auth/login");
     });
 }
-
+/**
+ * Signup handler
+ */
 export async function userCreateController(req: express.Request, res: express.Response) {
     if (req.body.password === req.body["confirm-password"]) {
         if (req.body.password?.length < 8) {
@@ -100,6 +118,9 @@ export async function userCreateController(req: express.Request, res: express.Re
     }
 }
 
+/**
+ * Email reset link handler
+ */
 export async function sendEmailToResetPassword(req: express.Request, res: express.Response) {
     const email = req.body?.email;
     try {
@@ -134,7 +155,9 @@ export async function sendEmailToResetPassword(req: express.Request, res: expres
     }
 
 }
-
+/**
+ * Reset password after email verification handler
+ */
 export async function resetPasswordWithToken(req: express.Request, res: express.Response) {
     const { id, token } = req.params;
 

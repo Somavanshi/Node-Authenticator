@@ -3,6 +3,9 @@ import passportLocal from 'passport-local';
 import { UserModel } from '../models/user';
 import bcrypt from 'bcrypt';
 
+/**
+ * Local strategy for authenticating
+ */
 const LocalStrategy = passportLocal.Strategy;
 passport.use(new LocalStrategy({
     passReqToCallback: true

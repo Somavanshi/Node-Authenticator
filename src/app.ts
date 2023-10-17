@@ -1,7 +1,6 @@
 import express from 'express';
 import "./secrets";
 import path from 'path';
-// import { router } from './routes';
 import cookieParser from "cookie-parser";
 import MongoStore from "connect-mongo";
 import session from "express-session";
@@ -15,14 +14,14 @@ import { UserModel } from './models/user';
 import { AuthRouter } from './routes/auth';
 import "./config/passport-local";
 import { addAuthenticated } from './utils/isAuthenticated';
-// import { userSessionController } from './controllers/Users';
-// import { UserModel } from './models/UserModel';
-// import { addAuthenticated } from './utils/isAuthenticated';
 import flash from 'connect-flash';
 import { flashHandler } from './config/middleware';
 
 const app = express();
 
+/**
+ * created a session
+ */
 app.use(session({
     name: "codial",
     secret: "secret",
@@ -41,6 +40,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 
+/**
+ * added setup for EJS
+ */
 app.use(express.static(path.join(__dirname, 'assets')));
 app.set("views", path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -75,6 +77,9 @@ app.get("/", (req, res) => {
 
 app.use('/api/auth', AuthRouter);
 
+/**
+ * Running the application on 8081
+ */
 app.listen(8081, () => {
     console.log('listening on port 8081');
 });

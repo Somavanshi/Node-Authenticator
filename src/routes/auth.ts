@@ -3,6 +3,9 @@ import { getResetPageController, resetPasswordController, resetPasswordWithToken
 import passport from 'passport';
 import { checkAuthenticated, checkLoggedIn } from '../utils/isAuthenticated';
 
+/**
+ * Router for handling auth request
+ */
 export const AuthRouter = express.Router();
 
 AuthRouter.get("/login", checkLoggedIn, userSignInController);
@@ -11,6 +14,9 @@ AuthRouter.get("/sign-out", userSignOutController);
 AuthRouter.get("/forgot-password", checkLoggedIn, userForgotPasswordController);
 AuthRouter.post("/forgot-password", sendEmailToResetPassword);
 
+/**
+ * Login using local strategy
+ */
 AuthRouter.post('/login',
     passport.authenticate('local', { failureRedirect: '/api/auth/login' }),
     function (req, res) {
@@ -19,6 +25,9 @@ AuthRouter.post('/login',
     });
 AuthRouter.post("/sign-up", userCreateController);
 
+/**
+ * Login using google strategy
+ */
 AuthRouter.get(
     "/google",
     passport.authenticate("google", {

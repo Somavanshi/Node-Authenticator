@@ -3,7 +3,9 @@ import passportGoogle from "passport-google-oauth20";
 import { UserModel } from "../models/user";
 import bcrypt from "bcrypt";
 const GoogleStrategy = passportGoogle.Strategy;
-
+/**
+ * Google strategy for authenticating
+ */
 passport.use(
   new GoogleStrategy(
     {
